@@ -67,5 +67,25 @@ public class TiendaRepository : ITiendaRepository
         }
         return null;
     }
+
+    public bool Delete(int ID)
+    {
+        bool success = false;
+        try
+        {
+            var doctor = _db.Tiendas.Where(d => d.Id == ID).FirstOrDefault();
+            if (doctor != null)
+            {
+                _db.Tiendas.Remove(doctor);
+                _db.SaveChanges();
+                success = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            success = false;
+        }
+        return success;
+    }
 }
 

@@ -30,5 +30,10 @@ namespace TestTiendaApi.Services
         {
             return _tiendaRepository.Update(ID, tienda);
         }
+
+        public bool Delete(int ID)
+        {
+            return _tiendaRepository.Delete(ID);
+        }
     }
 }

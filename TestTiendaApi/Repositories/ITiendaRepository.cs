@@ -8,5 +8,6 @@ namespace TestTiendaApi.Repositories
         Tienda Get(int ID);
         Tienda Update(int ID, Tienda tienda);
         Task<List<Tienda>> GetAllAsync();
+        bool Delete(int ID);
     }
 }
