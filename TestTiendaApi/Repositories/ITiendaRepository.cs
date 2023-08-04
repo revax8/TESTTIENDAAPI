@@ -1,7 +1,7 @@
 ﻿using TestTiendaApi.Models;
 
-namespace TestTiendaApi.Repositories
-{
+namespace TestTiendaApi.Repositories;
+
     public interface ITiendaRepository
     {
         bool Add(Tienda tienda);
@@ -10,4 +10,4 @@ namespace TestTiendaApi.Repositories
         Task<List<Tienda>> GetAllAsync();
         bool Delete(int ID);
     }
-}
+

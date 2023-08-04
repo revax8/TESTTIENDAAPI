@@ -3,21 +3,21 @@ using TestTiendaApi.Models;
 
 namespace TestTiendaApi.Repositories;
 
-public class TiendaRepository : ITiendaRepository
-{
+    public class ArticuloTiendaRepository: IArticuloTiendaRepository
+    {
     private readonly DbtesttiendaContext _db;
 
-    public TiendaRepository(DbtesttiendaContext db)
+    public ArticuloTiendaRepository(DbtesttiendaContext db)
     {
         _db = db;
     }
 
-    public bool Add(Tienda tienda)
+    public bool Add(ArticuloTiendum at)
     {
         bool success = false;
         try
         {
-            _db.Tiendas.Add(tienda);
+            _db.ArticuloTienda.Add(at);
             _db.SaveChanges();
             success = true;
         }
@@ -29,11 +29,11 @@ public class TiendaRepository : ITiendaRepository
     }
 
 
-    public Tienda Get(int ID)
+    public ArticuloTiendum Get(int ID)
     {
         try
         {
-            return _db.Tiendas.Where(c => c.Id == ID).FirstOrDefault();
+            return _db.ArticuloTienda.Where(c => c.Id == ID).FirstOrDefault();
         }
         catch (Exception ex)
         {
@@ -41,24 +41,24 @@ public class TiendaRepository : ITiendaRepository
         }
     }
 
-    public async Task<List<Tienda>> GetAllAsync()
+    public async Task<List<ArticuloTiendum>> GetAllAsync()
     {
-        return await _db.Tiendas.ToListAsync();
+        return await _db.ArticuloTienda.ToListAsync();
     }
 
-    public Tienda Update(int ID, Tienda tienda)
+    public ArticuloTiendum Update(int ID, ArticuloTiendum at)
     {
         try
         {
-            var tiendaObj = _db.Tiendas.Where(c => c.Id == ID).FirstOrDefault();
-            if (tiendaObj != null)
+            var atObj = _db.ArticuloTienda.Where(c => c.Id == ID).FirstOrDefault();
+            if (atObj != null)
             {
-                tiendaObj.Direccion = tienda.Direccion;
-                tiendaObj.Sucursal = tienda.Sucursal;
+                atObj.Fecha = at.Fecha;
+              
 
-                _db.Tiendas.Update(tiendaObj);
+                _db.ArticuloTienda.Update(atObj);
                 _db.SaveChanges();
-                return tiendaObj;
+                return atObj;
             }
         }
         catch (Exception ex)
@@ -73,10 +73,10 @@ public class TiendaRepository : ITiendaRepository
         bool success = false;
         try
         {
-            var t = _db.Tiendas.Where(d => d.Id == ID).FirstOrDefault();
-            if (t != null)
+            var at = _db.ArticuloTienda.Where(d => d.Id == ID).FirstOrDefault();
+            if (at != null)
             {
-                _db.Tiendas.Remove(t);
+                _db.ArticuloTienda.Remove(at);
                 _db.SaveChanges();
                 success = true;
             }
@@ -87,5 +87,6 @@ public class TiendaRepository : ITiendaRepository
         }
         return success;
     }
+
 }
 

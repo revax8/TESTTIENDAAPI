@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ITiendaRepository, TiendaRepository>();
 builder.Services.AddScoped<ITiendaService, TiendaService>();
+builder.Services.AddScoped<IArticuloTiendaRepository, ArticuloTiendaRepository>();
+builder.Services.AddScoped<IArticuloTiendaService, ArticuloTiendaService>();
 builder.Services.AddScoped<DbtesttiendaContext>();
 
 

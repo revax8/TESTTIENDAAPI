@@ -4,7 +4,7 @@ namespace TestTiendaApi.Services
 {
     public interface ITiendaService
     {
-        bool Add(Tienda paciente);
+        bool Add(Tienda tienda);
         Tienda Get(int ID);
         Tienda Update(int ID, Tienda tienda);
         Task<List<Tienda>> GetAllAsync();

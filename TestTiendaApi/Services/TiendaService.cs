@@ -11,9 +11,9 @@ namespace TestTiendaApi.Services
         {
             _tiendaRepository = tiendaRepository;
         }
-        public bool Add(Tienda paciente)
+        public bool Add(Tienda tienda)
         {
-            return _tiendaRepository.Add(paciente);
+            return _tiendaRepository.Add(tienda);
         }
 
         public Tienda Get(int ID)
