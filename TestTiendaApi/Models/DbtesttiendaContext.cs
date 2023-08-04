@@ -25,21 +25,15 @@ public partial class DbtesttiendaContext : DbContext
 
     public virtual DbSet<Tienda> Tiendas { get; set; }
 
-    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-    //        => optionsBuilder.UseSqlServer("Server=.\\SQLExpress; Database=DBTESTTIENDA; Trusted_Connection= true; Encrypt=False");
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+               .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+               .AddJsonFile("appsettings.json")
+               .Build();
+        var connectString = configuration["ConnectionStrings:TestTiendaConnection"];
+        optionsBuilder.UseSqlServer(connectString);
 
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("TestTiendaConnection"));
-        }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -64,7 +58,6 @@ public partial class DbtesttiendaContext : DbContext
         {
             entity.HasIndex(e => new { e.IdTienda, e.IdArticulo }, "Index_ArticuloTienda_1").IsUnique();
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Fecha).HasColumnType("date");
 
             entity.HasOne(d => d.IdArticuloNavigation).WithMany(p => p.ArticuloTienda)
