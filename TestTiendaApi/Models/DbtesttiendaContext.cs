@@ -58,7 +58,9 @@ public partial class DbtesttiendaContext : DbContext
         {
             entity.HasIndex(e => new { e.IdTienda, e.IdArticulo }, "Index_ArticuloTienda_1").IsUnique();
 
-            entity.Property(e => e.Fecha).HasColumnType("date");
+            entity.Property(e => e.Fecha)
+                .HasMaxLength(100)
+                .IsUnicode(false);
 
             entity.HasOne(d => d.IdArticuloNavigation).WithMany(p => p.ArticuloTienda)
                 .HasForeignKey(d => d.IdArticulo)

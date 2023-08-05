@@ -11,7 +11,7 @@ public partial class ArticuloTiendum
 
     public int IdTienda { get; set; }
 
-    public DateTime Fecha { get; set; }
+    public string Fecha { get; set; }
 
     public virtual Articulo IdArticuloNavigation { get; set; }
 

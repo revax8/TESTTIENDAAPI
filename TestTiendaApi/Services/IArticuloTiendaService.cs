@@ -1,4 +1,5 @@
 ﻿using TestTiendaApi.Models;
+using TestTiendaApi.ViewModel;
 
 namespace TestTiendaApi.Services
 {
@@ -9,5 +10,6 @@ namespace TestTiendaApi.Services
         ArticuloTiendum Update(int ID, ArticuloTiendum at);
         Task<List<ArticuloTiendum>> GetAllAsync();
         bool Delete(int ID);
+        public List<TiendaXArticulo> GetTiendaXArticulo(int ID);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TestTiendaApi.Models;
 using TestTiendaApi.Services;
+using TestTiendaApi.ViewModel;
 
 namespace TestTiendaApi.Controllers;
 
@@ -75,6 +76,16 @@ namespace TestTiendaApi.Controllers;
 
         return resp;
     }
-
+    [HttpGet("GetTiendaXArticulo")]
+    public IActionResult GetTiendaXArticulo(int ID)
+    {
+        IActionResult response = BadRequest();
+        var result = _atService.GetTiendaXArticulo(ID);
+        if (result != null)
+        {
+            response = Ok(result);
+        }
+        return response;
+    }
 }
 

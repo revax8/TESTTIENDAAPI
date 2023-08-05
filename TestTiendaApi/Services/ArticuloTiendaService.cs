@@ -1,5 +1,6 @@
 ﻿using TestTiendaApi.Models;
 using TestTiendaApi.Repositories;
+using TestTiendaApi.ViewModel;
 
 namespace TestTiendaApi.Services;
 
@@ -34,6 +35,10 @@ namespace TestTiendaApi.Services;
     public bool Delete(int ID)
     {
         return _arRepository.Delete(ID);
+    }
+    public List<TiendaXArticulo> GetTiendaXArticulo(int ID)
+    {
+        return _arRepository.GetTiendaXArticulo(ID);
     }
 }
 
