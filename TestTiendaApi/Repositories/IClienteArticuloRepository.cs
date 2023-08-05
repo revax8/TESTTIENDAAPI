@@ -3,7 +3,7 @@ using TestTiendaApi.ViewModel;
 
 namespace TestTiendaApi.Repositories;
 
-    public interface IArticuloTiendaRepository
+    public interface IClienteArticuloRepository
     {
     bool Add(ArticuloTiendum tienda);
     ArticuloTiendum Get(int ID);

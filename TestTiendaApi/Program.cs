@@ -21,6 +21,9 @@ builder.Services.AddScoped<IArticuloTiendaService, ArticuloTiendaService>();
 builder.Services.AddScoped<IArticuloService, ArticuloService>();
 builder.Services.AddScoped<IArticuloRepository, ArticuloRepository>();
 
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
 builder.Services.AddScoped<DbtesttiendaContext>();
 
 

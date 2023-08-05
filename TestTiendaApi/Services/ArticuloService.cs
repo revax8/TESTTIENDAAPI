@@ -3,37 +3,37 @@ using TestTiendaApi.Repositories;
 
 namespace TestTiendaApi.Services;
 
-    public class ArticuloService:IArticuloService
+    public class ClienteService:IClienteService
     {
-    private readonly IArticuloRepository _arRepository;
+    private readonly IClienteRepository _cRepository;
 
-    public ArticuloService(IArticuloRepository arRepository)
+    public ClienteService(IClienteRepository cRepository)
     {
-        _arRepository = arRepository;
+        _cRepository = cRepository;
     }
-    public bool Add(Articulo at)
+    public bool Add(Cliente at)
     {
-        return _arRepository.Add(at);
-    }
-
-    public Articulo Get(int ID)
-    {
-        return _arRepository.Get(ID);
+        return _cRepository.Add(at);
     }
 
-    public async Task<List<Articulo>> GetAllAsync()
+    public Cliente Get(int ID)
     {
-        return await _arRepository.GetAllAsync();
+        return _cRepository.Get(ID);
     }
 
-    public Articulo Update(int ID, Articulo ar)
+    public async Task<List<Cliente>> GetAllAsync()
     {
-        return _arRepository.Update(ID, ar);
+        return await _cRepository.GetAllAsync();
+    }
+
+    public Cliente Update(int ID, Cliente ar)
+    {
+        return _cRepository.Update(ID, ar);
     }
 
     public bool Delete(int ID)
     {
-        return _arRepository.Delete(ID);
+        return _cRepository.Delete(ID);
     }
 }
 
