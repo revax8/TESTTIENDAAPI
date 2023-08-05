@@ -8,4 +8,5 @@
         public int idTienda { get; set; }    
         public bool Asignada { get; set; }         
     }
+  
 }

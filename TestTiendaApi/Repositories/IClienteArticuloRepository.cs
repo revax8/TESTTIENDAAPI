@@ -5,11 +5,8 @@ namespace TestTiendaApi.Repositories;
 
     public interface IClienteArticuloRepository
     {
-    bool Add(ArticuloTiendum tienda);
-    ArticuloTiendum Get(int ID);
-    ArticuloTiendum Update(int ID, ArticuloTiendum at);
-    Task<List<ArticuloTiendum>> GetAllAsync();
-    bool Delete(int ID);
-    public List<TiendaXArticulo> GetTiendaXArticulo(int ID);
+  
+    public List<ClienteXArticulo> GetClienteXArticulo(int idCliente, int idTienda);
+    bool Add(ClienteArticulo tienda);
 }
 
