@@ -12,12 +12,12 @@ namespace TestTiendaApi.Repositories;
         _db = db;
     }
 
-    public bool Add(ArticuloTiendum at)
+    public bool Add(ArticuloTiendum a)
     {
         bool success = false;
         try
         {
-            _db.ArticuloTienda.Add(at);
+            _db.ArticuloTienda.Add(a);
             _db.SaveChanges();
             success = true;
         }
@@ -46,19 +46,20 @@ namespace TestTiendaApi.Repositories;
         return await _db.ArticuloTienda.ToListAsync();
     }
 
-    public ArticuloTiendum Update(int ID, ArticuloTiendum at)
+    public ArticuloTiendum Update(int ID, ArticuloTiendum a)
     {
         try
         {
-            var atObj = _db.ArticuloTienda.Where(c => c.Id == ID).FirstOrDefault();
-            if (atObj != null)
+            var aObj = _db.ArticuloTienda.Where(c => c.Id == ID).FirstOrDefault();
+            if (aObj != null)
             {
-                atObj.Fecha = at.Fecha;
-              
+                aObj.Fecha = a.Fecha;
+               
 
-                _db.ArticuloTienda.Update(atObj);
+
+                _db.ArticuloTienda.Update(aObj);
                 _db.SaveChanges();
-                return atObj;
+                return aObj;
             }
         }
         catch (Exception ex)
