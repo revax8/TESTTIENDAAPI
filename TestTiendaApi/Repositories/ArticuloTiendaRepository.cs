@@ -41,7 +41,7 @@ namespace TestTiendaApi.Repositories;
                             on new { IdArticulo = a.Id, IdTienda = t.Id }
                             equals new { at.IdArticulo, at.IdTienda } into articuloTiendaJoin
                             from at in articuloTiendaJoin.DefaultIfEmpty()
-                            where a.Id == 1
+                            where a.Id == ID
                             select new TiendaXArticulo
                             {
                                 idArticulo = a.Id,
