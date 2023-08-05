@@ -94,7 +94,9 @@ public partial class DbtesttiendaContext : DbContext
             entity.HasKey(e => new { e.IdCliente, e.IdArticulo });
 
             entity.ToTable("ClienteArticulo");
-
+            entity.Property(e => e.Fecha)
+               .HasMaxLength(15)
+               .IsUnicode(false);
             entity.HasOne(d => d.IdArticuloNavigation).WithMany(p => p.ClienteArticulos)
                 .HasForeignKey(d => d.IdArticulo)
                 .OnDelete(DeleteBehavior.ClientSetNull)

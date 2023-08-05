@@ -34,7 +34,7 @@ namespace TestTiendaApi.Controllers;
 
 
 
-    [HttpGet("GetClienteXArticulo")]
+    [HttpGet("GetTiendaXArticulo")]
     public IActionResult GetTiendaXArticulo(int idCliente, int idTienda)
     {
         IActionResult response = BadRequest();
